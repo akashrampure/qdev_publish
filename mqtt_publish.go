@@ -40,7 +40,7 @@ type DataToPublish struct {
 	SDeviceId string  `json:"sdeviceid"`
 	Lat       float64 `json:"lat"`
 	Long      float64 `json:"long"`
-	LatLngDir byte    `json:latlngdir`
+	LatLngDir byte    `json:"latlngdir"`
 	LUTCtime  int64   `json:"lutctime"`
 }
 
