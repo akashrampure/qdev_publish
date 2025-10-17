@@ -40,6 +40,7 @@ type DataToPublish struct {
 	SDeviceId string  `json:"sdeviceid"`
 	Lat       float64 `json:"lat"`
 	Long      float64 `json:"long"`
+	LatLngDir byte    `json:latlngdir`
 	LUTCtime  int64   `json:"lutctime"`
 }
 
@@ -205,6 +206,7 @@ func main() {
 			Lat:       parsed.Lat,
 			Long:      parsed.Lng,
 			LUTCtime:  rawData.LUTCtime,
+			LatLngDir: parsed.LatLngDir,
 		}
 
 		for _, eachDevice := range parsed.Devices {
