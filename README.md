@@ -1,0 +1,1 @@
+# Usage: go run filename.go <topic>
