@@ -142,14 +142,14 @@ func main() {
 				if !ok {
 					return
 				}
-				// unlimited publish; no upper bound on number of messages
 				fullTopic := "/laf/blescan/" + newmsg.deviceid
 				topic := []byte(fullTopic)
-				payload, err := json.Marshal(newmsg.payload)
+				payloadJson, err := json.Marshal(newmsg.payload)
 				if err != nil {
 					log.Println("Error Marshalling the Data")
 					continue
 				}
+				payload := snappy.Encode(nil, payloadJson)
 				atomic.AddUint32(&npublished, 1)
 				publishisok := wspusher.Publish(topic, payload, nil, wspusherpubcallback)
 				for !publishisok {
